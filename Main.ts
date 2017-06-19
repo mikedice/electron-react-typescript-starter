@@ -1,4 +1,5 @@
 import {BrowserWindow} from 'electron';
+const {ipcMain} = require('electron')
 
 export default class Main {
     static mainWindow: Electron.BrowserWindow;
@@ -15,10 +16,13 @@ export default class Main {
     }
 
     private static onReady(){
+        ipcMain.on('ui-notifications"', (event, arg) => {
+            console.log(arg)  // prints "ping"
+        });
         Main.mainWindow =  new Main.BrowserWindow({width: 800, height: 600})
         var indexUrl = `file://${__dirname}/index.html`;
         Main.mainWindow.loadURL(indexUrl);
-        Main.mainWindow.webContents.openDevTools("right");
+        Main.mainWindow.webContents.openDevTools();
         Main.mainWindow.on('closed', Main.onClose);
 
     }
