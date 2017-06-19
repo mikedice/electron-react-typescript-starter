@@ -4,12 +4,17 @@
   "description": "Electron using TypeScript starter project based Dave M Bush's blog at https://blog.dmbcllc.com/typescript-and-electron-the-right-way/",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "typings install",
+    "watch": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "ts-loader": "^2.1.0"
+  },
   "dependencies": {
+    "@types/react": "^15.0.29",
+    "@types/react-dom": "^15.5.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   }

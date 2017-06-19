@@ -2,7 +2,13 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import Hello from "./Hello";
 
-ReactDOM.render(
-  <Hello name="Willson" />,
-  document.getElementById("root")
-);
+class UIEntry{
+  static StartUI(){
+    ReactDOM.render(
+      <Hello name="Willson" />,
+      document.getElementById("root")
+    );
+  }
+}
+
+UIEntry.StartUI();
